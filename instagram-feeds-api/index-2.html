@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Feed</title>
+  <style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: tahoma;
+  color: #333;
+}
+
+.wrap{
+  width: 100%;
+  max-width: 1240px;
+  padding: 0px 20px;
+  margin: 0 auto;
+}
+
+section#instagram-feeds {
+  padding: 80px 0px;
+  background: #f8f8f8;
+}
+
+section#instagram-feeds h2 {
+  font-size: 36px;
+  max-width: 310px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  background: linear-gradient(90deg, #A631C1, #F6504D);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+div#instafeed {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 15px;
+    margin-top: 35px;
+}
+
+div#instafeed img {
+    display: block;
+    max-width: 100%;
+}
+  </style>
+</head>
+<body>
+  
+  <section id="instagram-feeds">
+    <div class="wrap">
+      <h2>Instagram Feeds</h2>
+
+      <div id="instafeed"></div>
+    </div>
+  </section>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <script>
+
+    var token = 'IGQVJYaXVYMkxZAeF83NENQeUhlWko2ZAklHd0M0N0JLNmwzend0cVdfTHlQWGV4ZAEk5bENJNXpJYzBBSGZAmUHFYdDloNndnV2RuWHhQeDYyQloyQzd3SThCM1N2SVBTZAmdlUmVTTTJaTGVXanJhTVhaOQZDZD',       //there are my real values
+        username = '_otribe_',          //there are my real values
+        num_photos = 8;
+
+    $.ajax({
+        url: 'https://api.instagram.com/v1/users/search',
+        dataType: 'jsonp',
+        type: 'GET',
+        data: {access_token: token, q: username},
+        success: function(data){
+            console.log(data);
+            $.ajax({
+                url: 'https://api.instagram.com/v1/users/' + data.data[0].id + '/media/recent',
+                dataType: 'jsonp',
+                type: 'GET',
+                data: {access_token: token, count: num_photos},
+                success: function(data2){
+                    console.log(data2);
+                    for(x in data2.data){
+                        $('#instafeed').append('<img src="'+data2.data[x].images.thumbnail.url+'">');
+                    }
+                },
+                error: function(data2){
+                    console.log(data2);
+                }
+            });
+        },
+        error: function(data){
+            console.log(data);
+        }
+    });
+</script>
+
+</body>
+</html>
