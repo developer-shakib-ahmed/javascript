@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanilla JS - CORS Origin Blob Downloader</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body, input, select, button{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 16px;
+      line-height: 22px;
+      color: #222;
+    }
+
+    div.wrap{
+      width: 100%;
+      max-width: 1280px;
+      margin:0 auto;
+      padding: 0px 20px;
+    }
+
+    div.search-box{
+      width: 991px;
+      margin: 25px auto;
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      background: #E5E5E5;
+      display: flex;
+      align-items: center;
+    }
+
+    div.search-box input[type="text"]{
+      flex: 1 1 auto;
+      padding: 15px 10px;
+      border-radius: 5px;
+      outline: 0;
+      border: 1px solid #aaa;
+    }
+
+    div.search-box #btnDownload{
+      margin-left: 15px;
+      padding: 15px 20px;
+      cursor: pointer;
+      border: 1px solid #222;
+      border-radius: 5px;
+      background: #222;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    div.search-box #btnDownload:hover{
+      background: #555;
+    }
+
+    
+    #progress-bar {
+      width: 991px;
+      margin: 25px auto;
+      padding: 0;
+      border-radius: 15px;
+      border: 1px solid #aaa;
+      background: #E7E9EB;
+      position: relative;
+      height: 28px;
+      overflow: hidden;
+      display: none;
+    }
+
+    #progress {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: #4CAF50;
+      transition: 0.5s linear;
+      text-align: right;
+      color: #fff;
+      line-height: 24px;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 0px 10px;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <div class="wrap">
+    <div class="search-box">
+      <input id="urlField" type="text" placeholder="Enter your link">
+      <button id="btnDownload">Download</button>
+    </div>
+
+    <div id="progress-bar">
+      <div id="progress">0%</div>
+    </div>
+  </div>
+
+
+  <script>
+
+    let URL = document.getElementById( "urlField" );
+    let btn = document.getElementById( "btnDownload" );
+    let progressBar = document.getElementById( "progress-bar" );
+    let progress = document.getElementById( "progress" );
+
+    btn.addEventListener( "click", function (e) {
+
+      if( URL.value ) {
+        console.log( "Loading..." );
+        progressBar.style.display = "block";
+        downloadResource( URL.value );
+        // console.log( "Download will start after 5 seconds." );
+        URL.value = "";
+      }
+      else {
+        alert( "Please enter valid URL!" );
+      }
+      
+    });
+
+
+    /**
+     * Create Force Download Function
+     * 
+     * https://stackoverflow.com/questions/49474775/chrome-65-blocks-cross-origin-a-download-client-side-workaround-to-force-down
+     * 
+     * https://github.com/AnthumChris/fetch-progress-indicators/blob/master/fetch-basic/supported-browser.js
+     * 
+     * Firefox https://stackoverflow.com/a/32226068
+     */
+     function forceDownload(blob, filename) {
+      var a = document.createElement('a');
+      a.download = filename;
+      a.href = blob;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      console.log("Downloaded.");
+    }
+
+    // Current blob size limit is around 500MB for browsers
+    function downloadResource(url, filename) {
+      if (!filename) filename = url.split('\\').pop().split('/').pop();
+
+      fetch(url, {
+        headers: new Headers({
+          'Origin': location.origin
+        }),
+        mode: 'cors'
+      })
+        .then(response => {
+
+          const contentEncoding = response.headers.get('content-encoding');
+          const contentLength = response.headers.get(contentEncoding ? 'x-file-size' : 'content-length');
+          contentType = response.headers.get('content-type') || contentType;
+          if (contentLength === null) {
+            throw Error('Response size header unavailable');
+          }
+
+          const total = parseInt(contentLength, 10);
+          let loaded = 0;
+
+          return new Response(
+            new ReadableStream({
+              start(controller) {
+                const reader = response.body.getReader();
+
+                read();
+
+                function read() {
+                  reader.read().then(({ done, value }) => {
+                    if (done) {
+                      controller.close();
+                      return;
+                    }
+                    loaded += value.byteLength;
+                    progressCalculate({ loaded, total })
+                    controller.enqueue(value);
+                    read();
+                  }).catch(error => {
+                    console.error(error);
+                    controller.error(error)
+                  })
+                }
+              }
+            })
+          );
+        })
+        .then( (response) => response.blob())
+        .then(blob => {
+          console.log(blob);
+          let blobUrl = window.URL.createObjectURL(blob);
+          forceDownload(blobUrl, filename);
+        })
+        .catch(e => console.error(e));
+    }
+
+    function progressCalculate({ loaded, total }) {
+      let progressValue = Math.round(loaded / total * 100);
+      progress.innerHTML = progressValue + '%';
+      progress.style.width = progressValue + '%';
+    }
+
+  </script>
+
+</body>
+</html>
