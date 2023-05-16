@@ -1,0 +1,606 @@
+:root {
+  --tiktokAqua: #69C9D0;
+  --tiktokRed: #EE1D52;
+  --tiktokBlack: #010101;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--tiktokBlack);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+input, textarea, select, button {
+  font-family: tahoma;
+  font-size: 16px;
+  transition: 0.25s;
+}
+
+.wrap{
+  width: 100%;
+  max-width: 1280px;
+  margin:0 auto;
+  padding: 0px 15px;
+}
+
+.header {
+  padding: 10px 0px;
+}
+
+.header .logo img {
+  display: block;
+  height: auto;
+  width: 130px;
+  min-width: 130px;
+}
+
+.header .menu ul {
+  margin: 0px 0px;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header .menu ul li {
+  margin-left: 15px;
+}
+
+.header .menu ul li a {
+  text-decoration: none;
+  color: var(--tiktokBlack);
+  transition: 0.25s;
+}
+
+.header .menu ul li a:hover {
+  color: var(--tiktokAqua);
+}
+
+.page-title{
+  padding: 40px 0px;
+  background-color: #f7f7f7;
+  text-align: center;
+  background-image: url(../img/bg-1.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.page-title h1 {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 0;
+  letter-spacing: 0px;
+  line-height: 1;
+  font-size: 32px;
+}
+
+.page-title .tagline {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.3;
+  margin-top: 5px;
+}
+
+.page-title .inner-wrap{
+  padding: 25px;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  backdrop-filter: blur(5px);
+  max-width: 800px;
+  margin:0 auto;
+}
+
+.page-title .search-box{
+  display: flex;
+  justify-content: center;
+}
+
+.page-title .search-box input {
+  flex: 1 1 auto;
+  padding: 18px 30px;
+  border: 1px solid rgb(0 185 247 / 20%);
+  border-right: 0;
+  outline: 0;
+  border-radius: 30px 0px 0px 30px;
+  line-height: 1;
+  margin: 0;
+}
+
+.page-title .search-box button {
+  padding: 15px 31px;
+  cursor: pointer;
+  border: 1px solid rgb(255 255 255 / 40%);
+  outline: 0;
+  background: var(--tiktokRed);
+  color: #fff;
+  border-radius: 0px 30px 30px 0px;
+  height: auto;
+  line-height: 1;
+  margin: 0;
+}
+
+.page-title .search-box button:hover,
+.page-title .search-box button:focus{
+  background-color: #333;
+  color: #fff;
+}
+
+.loading-info {
+  background: #f7f7f7;
+  padding: 30px 15px;
+  display: none;
+}
+
+.loading-info .loader {
+  width: 100%;
+  max-width: 100px;
+  margin: 0 auto;
+  text-align: center;
+  display: none;
+}
+
+.loading-info .loader h4 {
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.loading-info .loader img {
+  display: block;
+  margin: 0 auto;
+  width: 50px;
+}
+
+.loading-info .error-message {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid var(--tiktokRed);
+  padding: 0px 15px;
+  text-align: center;
+  color: var(--tiktokRed);
+  display: none;
+}
+
+.video-items {
+  background: #f7f7f7;
+  padding: 50px 0px 70px;
+  display: none;
+}
+
+.video-items .top-info {
+  max-width: 500px;
+  margin: 0 auto 35px;
+  text-align: center;
+  width: 100%;
+}
+
+.video-items .top-info img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ddd;
+  padding: 2px;
+}
+
+.video-items .top-info .title h3 {
+  margin-bottom: 0;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.video-items .top-info .title p {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.video-items .top-info .profile-meta {
+  display: flex;
+  justify-content: center;
+}
+
+.video-items .top-info .meta {
+  margin: 0px 15px;
+  font-size: 14px;
+}
+
+.video-items .items-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+  padding: 0px 15px;
+}
+
+.video-items .items-inner .item {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px 15px 18px;
+  text-align: center;
+}
+
+.video-items .items-inner .item img {
+  display: block;
+  width: 100%;
+  height: 340px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.video-items .items-inner .item h3 {
+  margin-top: 15px;
+  margin-bottom: 0;
+  font-size: 18px;
+}
+
+.video-items .items-inner .item p {
+  font-size: 14px;
+}
+
+.video-items .items-inner .buttons a {
+  font-size: 14px;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: var(--tiktokRed);
+  border-radius: 5px;
+  line-height: 1;
+  transition: 0.25s;
+}
+
+.video-items .items-inner .buttons a:hover{
+  background-color: #000;
+}
+
+
+
+.video-by-id {
+  background: #f7f7f7;
+  padding: 70px 0px 70px;
+  display: none;
+}
+
+.video-by-id .video-info {
+  width: calc(100% - 30px);
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid rgb(105 201 208 / 30%);
+  background: rgb(105 201 208 / 17%);
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.video-by-id .video {
+  flex: 0 0 50%;
+  position: relative;
+}
+
+.video-by-id .video .thumb {
+  overflow: hidden;
+  position: relative;
+  border-radius: 5px;
+}
+
+.video-by-id .video img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+.video-by-id span.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0 0 0 / 10%);
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-by-id span.icon img {
+  display: block;
+  width: 49px;
+  height: auto;
+  transition: 0.3s;
+  transform: scale(1);
+}
+
+.video-by-id .video:hover span.icon {
+  background: rgb(0 0 0 / 40%);
+}
+
+.video-by-id .video:hover span.icon img {
+  transform: scale(1.1);
+}
+
+
+.video-by-id .info {
+  flex: 0 0 50%;
+  padding-left: 20px;
+}
+
+.video-by-id .avatar img {
+  display: block;
+  margin: 0 auto;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--tiktokRed);
+  padding: 2px;
+}
+
+.video-by-id .author-info {
+  text-align: center;
+}
+
+.video-by-id .author-info h3 {
+  margin: 0px 0px 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.video-by-id .author-info p {
+  margin: 0px 0px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.video-by-id .video-meta {
+  background: #fff;
+  border: 1px solid rgb(110 110 110 / 40%);
+  border-radius: 5px;
+  margin-top: 25px;
+}
+
+.video-by-id .video-meta h3 {
+  margin: 0px 0px 0px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 10px;
+  border-bottom: 1px solid rgb(110 110 110 / 40%);
+  line-height: 1.1;
+  color: var(--tiktokRed);
+}
+
+.video-by-id .video-meta ul {
+  margin: 0px;
+  padding: 0px;
+  font-size: 14px;
+  list-style: none;
+}
+
+.video-by-id .video-meta ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px;
+  border-bottom: 1px solid #f1f1f1;
+  line-height: 1;
+}
+
+.video-by-id .video-meta ul li:last-child {
+  border-bottom: 0;
+}
+
+.video-by-id .video-meta ul li span:nth-child(2) {
+  color: #000;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.video-by-id .download-table {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 15px 20px;
+  width: calc(100% - 30px);
+  max-width: 600px;
+  margin: 20px auto 0;
+}
+
+.video-by-id .download-table ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.video-by-id .download-table ul li {
+  line-height: 1.1;
+  padding: 10px 0px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  align-items: center;
+}
+
+.video-by-id .download-table ul li:last-child {
+  border-bottom: 0;
+}
+
+.video-by-id .download-table ul li span {
+  flex: 1 1 auto;
+}
+
+.video-by-id .download-table ul li span:nth-child(1) {
+  white-space: nowrap;
+}
+
+.video-by-id .download-table ul li span:nth-child(2) {
+  text-align: center;
+  padding: 0px 5px;
+  word-break: break-word;
+}
+
+.video-by-id .download-table ul li span:nth-child(3) {
+  text-align: right;
+}
+
+.video-by-id .download-table ul li span:nth-child(3) a {
+  background: var(--tiktokRed);
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.video-by-id .download-table ul li span:nth-child(3) a:hover {
+  background: var(--tiktokBlack);
+}
+
+
+
+.tiktok-download-features {
+  padding: 50px 0px;
+}
+
+.tiktok-download-features .section-title h1 {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.tiktok-download-features .box {
+  background: #f7f7f7;
+  padding: 25px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 15px 0px;
+}
+
+.tiktok-download-features .box h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.tiktok-download-features .box .text {
+  padding-left: 25px;
+}
+
+.tiktok-download-features .box .text p {
+  margin-bottom: 0;
+}
+
+
+.footer {
+  background: var(--tiktokBlack);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+}
+
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+
+.video-items .items-inner {
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0px 8px;
+}
+
+}
+
+
+
+@media (max-width: 767px) {
+.header .logo img {
+  /* width: 50px; */
+}
+
+.header .menu ul {
+  /* margin: 11px 0px; */
+}
+
+.page-title {
+  padding: 40px 0px;
+}
+
+.page-title .inner-wrap {
+  padding: 30px 15px;
+}
+
+.page-title h1 {
+  font-size: 26px;
+}
+
+.page-title .search-box button {
+  padding: 12px 15px;
+}
+
+.page-title .search-box input {
+  padding: 12px 15px;
+  font-size: 14px;
+}
+
+.video-items .items-inner {
+  grid-template-columns: repeat(2, 1fr);
+  padding: 0px 16px;
+}
+
+.tiktok-download-features .section-title h1 {
+  margin-bottom: 0px;
+}
+
+.video-by-id {
+  padding: 40px 0px 40px;
+}
+
+.tiktok-download-features {
+  padding: 30px 0px;
+}
+
+}
+
+
+
+@media (max-width: 480px) {
+
+.video-items .items-inner {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 0px 16px;
+}
+
+.tiktok-download-features .box .text p {
+  margin-top: 5px;
+}
+
+.tiktok-download-features .box img {
+  margin-top: 5px;
+}
+
+.video-by-id .video-info{
+  padding: 15px;
+}
+
+.video-by-id .video {
+  flex: 0 0 100%;
+}
+
+.video-by-id .info {
+  flex: 0 0 100%;
+  padding-left: 0px;
+  margin-top: 20px;
+}
+
+}

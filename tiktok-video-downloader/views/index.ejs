@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto+Condensed:ital,wght@0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/combined.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+  <div class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="logo">
+            <a href="#"><img src="./assets/img/logo.png"
+                alt=""></a>
+          </div>
+        </div>
+        <div class="col-xs-8">
+          <div class="menu">
+            <ul>
+              <li><a href="#">Home</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="page-title">
+    <div class="wrap">
+      <div class="inner-wrap">
+        <h1>TikTok Video Downloader</h1>
+        <p class="tagline">Unlimited Tiktok Videos in Full-HD no Watermark</p>
+        
+        <div class="search-box">
+          <input type="text" id="searchField" placeholder="https://tiktok.com/@yourusername">
+          <button id="btnSearch">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="loading-info">
+    <div class="container">
+      <div class="row">
+        <div class="loader">
+          <img src="./assets/img/loading.gif" alt="">
+          <h4>Loading...</h4>
+        </div>
+  
+        <div class="error-message">
+          <p>Something went wrong!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-by-id">
+    <div class="container">
+      <div class="row">
+        <div class="video-info">
+          <div class="video">
+            <div class="thumb">
+              <img src="./assets/img/img3.jpg" alt="">
+              <span class="icon">
+                <img src="./assets/img/download-solid.svg" alt="download">
+              </span>
+            </div>            
+          </div>
+
+          <div class="info">
+            <div class="author-info">
+              <div class="avatar">
+                <img src="./assets/img/img1.jpg" alt="">
+              </div>
+              
+              <div class="title">
+                <h3>@davidbeckham</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, quibusdam inventore.</p>
+              </div>
+            </div>
+
+            <div class="video-meta">
+              <h3>Video Informations</h3>
+              <ul>
+                <li>
+                  <span>Likes:</span>
+                  <span class="likes">0</span>
+                </li>
+                <li>
+                  <span>Share:</span>
+                  <span class="share_count">0</span>
+                </li>
+                <li>
+                  <span>Total Play:</span>
+                  <span class="play_count">0</span>
+                </li>
+                <li>
+                  <span>Comments:</span>
+                  <span class="comments">0</span>
+                </li>       
+                <li>
+                  <span>Downloads:</span>
+                  <span class="download_count">0</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="download-table">
+          <ul></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="video-items">
+    <div class="container">      
+      <div class="row">
+        <div class="top-info">
+          <div class="thumb">
+            <img src="./assets/img/img1.jpg" alt="">
+          </div>
+
+          <div class="title">
+            <h3>davidbeckham</h3>
+            <p>David Beckham</p>
+          </div>
+
+          <div class="profile-meta">
+            <div class="meta">
+              <strong id="following">0</strong>
+              <span>Following</span>
+            </div>
+
+            <div class="meta">
+              <strong id="followers">0</strong>
+              <span>Followers</span>
+            </div>
+
+            <div class="meta">
+              <strong id="likes">0</strong>
+              <span>Likes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row item-row">
+        <div class="items-inner">
+          <div class="item">
+            <img src="./assets/img/img2.jpg" alt="">
+            <h3>Video 1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel eius labore rem sequi dolorum.</p>
+            <div class="buttons">
+              <a href="./assets/videos/video-1.mp4" download>Download Now</a>
+            </div>
+          </div>
+          <div class="item">
+            <img src="./assets/img/img3.jpg" alt="">
+            <h3>Video 2</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel eius labore rem sequi dolorum.</p>
+            <div class="buttons">
+              <a href="./assets/videos/video-1.mp4" download>Download Now</a>
+            </div>
+          </div>
+          <div class="item">
+            <img src="./assets/img/img4.jpg" alt="">
+            <h3>Video 3</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel eius labore rem sequi dolorum.</p>
+            <div class="buttons">
+              <a href="./assets/videos/video-1.mp4" download>Download Now</a>
+            </div>
+          </div>
+          <div class="item">
+            <img src="./assets/img/img2.jpg" alt="">
+            <h3>Video 4</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel eius labore rem sequi dolorum.</p>
+            <div class="buttons">
+              <a href="./assets/videos/video-1.mp4" download>Download Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="tiktok-download-features">
+    <div class="container">
+      <div class="row">
+        <div class="section-title">
+          <h1>Features and Benefits</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="box">
+            <div class="icon">
+              <img src="./assets/img/feat1.svg" alt="">
+            </div>
+            <div class="text">
+              <h3>Without Watermark</h3>
+              <p>Downloaded video without watermark, ready to edit or watch offline.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="box">
+            <div class="icon">
+              <img src="./assets/img/feat2.svg" alt="">
+            </div>
+            <div class="text">
+              <h3>Unlimited and Free</h3>
+              <p>Download for free as many videos and audios as you want.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="box">
+            <div class="icon">
+              <img src="./assets/img/feat3.svg" alt="">
+            </div>
+            <div class="text">
+              <h3>No Software Required</h3>
+              <p>Download online without installing software, just create an account.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="box">
+            <div class="icon">
+              <img src="./assets/img/feat4.svg" alt="">
+            </div>
+            <div class="text">
+              <h3>All Platforms and Browsers Supported</h3>
+              <p>Support download on any device PC, Android, iOS and on any browser.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="copyright">
+          <p>&copy; 2023 Unlimited Tiktok Video Downloader.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="./assets/js/main.js"></script>
+
+</body>
+</html>

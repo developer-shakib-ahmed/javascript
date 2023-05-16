@@ -1,0 +1,22 @@
+{
+  "name": "tiktok-video-downloader",
+  "version": "1.0.0",
+  "description": "This is tiktok video downloader for Khmmo.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=development nodemon app.js",
+    "build": "cross-env NODE_ENV=production node app.js"
+  },
+  "author": "Developer Shakib Ahmed",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "http-errors": "^2.0.0",
+    "node-fetch": "^2.6.9"
+  }
+}
