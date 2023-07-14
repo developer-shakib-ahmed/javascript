@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Play on Mobile</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    .video-wrap {
+      position: relative;
+      background-color: #ddd;
+      padding: 0;
+    }
+    
+    .video-wrap video {
+      display: block;
+      width: 100%;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <div class="video-wrap">
+    <video id="myVideo" controls preload="auto" autoplay>
+      <source type="video/mp4" src="https://cdn.shopify.com/videos/c/vp/bba6e58c3d6a4f60bd421b968037d30e/bba6e58c3d6a4f60bd421b968037d30e.HD-1080p-7.2Mbps-11915600.mp4">
+    </video>
+  </div>
+
+  <script>
+    window.onload = function() {
+      console.log('-Window Loaded-');
+
+      const Video = document.getElementById('myVideo');
+      
+      let isPlay = false;
+
+      Video.addEventListener('touchend', function(){
+
+        if( !isPlay ) {
+          Video.play();
+          isPlay = !isPlay;
+          console.log(isPlay, 'Video playing');
+          return;
+        }
+
+        if( isPlay ) {
+          Video.pause();
+          isPlay = !isPlay;
+          console.log(isPlay, 'Video paused');
+          return;
+        }
+      });
+
+      Video.addEventListener('click', function(){
+        console.log('video clicked');
+      });
+
+      Video.addEventListener('touchstart', function(){
+        console.log('video touchstart');
+      });
+
+    }
+  </script>
+</body>
+</html>

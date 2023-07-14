@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Editor - TinyMCE</title>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-size: 16px;
+  color: #333;
+  font-family: tahoma;
+}
+
+div.editors {
+  width: 100%;
+  max-width: 767px;
+  border: 5px solid #333;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px auto 35px;
+}
+
+div.editors h1 {
+  text-align: center;
+  font-size: 22px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+div.editors textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+</style>
+</head>
+<body>
+
+  <div class="editors" id="editor-1">
+    <h1>Editor 1</h1>
+    
+    <form action="">
+      <p>
+        <textarea name="content-1" id="" cols="30" rows="10" placeholder="Editor 1"></textarea>
+      </p>
+
+      <p>
+        <input id="save-1" type="submit" value="Save">
+      </p>
+    </form>
+  </div>
+
+  <div class="editors" id="editor-2">
+    <h1>Editor 2</h1>
+    <textarea name="" id="" cols="30" rows="10" placeholder="Editor 2..."></textarea>
+  </div>
+  
+  
+
+  <script src="./tinymce/js/tinymce/tinymce.min.js"></script>
+
+  <script>
+
+    tinymce.init({
+      selector: '#editor-1 textarea',
+      // plugins: 'a_tinymce_plugin',
+      // a_plugin_option: true,
+      // a_configuration_option: 400
+    });
+
+    tinymce.init({
+      selector: '#editor-2 textarea',
+      // plugins: 'a_tinymce_plugin',
+      // a_plugin_option: true,
+      // a_configuration_option: 400
+    });
+
+    document.getElementById('save-1').addEventListener('click', function(e){
+      e.preventDefault();
+
+      document.querySelector('#editor-1 textarea').value = tinymce.activeEditor.getContent();
+      
+      console.log('clicked');
+    });
+
+    console.log('Ready');
+  </script>
+</body>
+</html>
+
+
+
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+
+<h1>Heading 1</h1>
+<h2>Heading 2</h2>
+<p>Paragraph</p>
+<a href="#">Link</a>
+<img src="image.png">
+<button>Button</button>
