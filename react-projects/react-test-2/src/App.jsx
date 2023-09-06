@@ -1,33 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  let level = 0;
+
+  // let status = false;
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
+        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
-        <a href="https://react.dev" target="_blank">
+        <a href="https://react.dev" target="_blank" rel="noreferrer">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
+
       <h1>Vite + React</h1>
+
       <div className="card">
+        <h3>Your score is too {count >= 60 ? count >= 80 ? 'high' : 'medium' : 'low'}</h3>
+
         <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+          Count is: {count}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+        {(() => {
+
+          if( count >= 10 && count < 20 ) {
+            level = 1
+          }
+          else if( count >= 20 && count < 30 ) {
+            level = 2
+          }
+          else if( count >= 30 ){
+            level = 3
+          }
+
+        })()}
+
+        <h3>Your Level: {level}</h3>
+        
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
