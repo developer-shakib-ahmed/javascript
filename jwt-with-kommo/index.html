@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JWT - Kommo</title>
+</head>
+<body>
+  
+  <h1 style="text-align: center; padding-top: 40vh; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Getting JWT Token from Kommo.com</h1>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function () {
+
+  jQuery.ajax({
+
+    url: 'https://www.kommo.com/',
+
+    headers: {
+      'X-Auth-Token':'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjlhZTQ2OTI1NDk0ZmI3MzYzNzg0NTk2NGIwYTc5MWY1ZmQ5ZGYzOWJiMTdlYjlmMTFhNDY0NTU0MjAyNjY0ZmFjYjNmNDliMjBmZThkNGE3In0.eyJhdWQiOiJjMGQ0NzQ3OS1hY2E5LTQwZjAtYTMwNS1jOTQ3Zjc0Yzc4MjUiLCJqdGkiOiI5YWU0NjkyNTQ5NGZiNzM2Mzc4NDU5NjRiMGE3OTFmNWZkOWRmMzliYjE3ZWI5ZjExYTQ2NDU1NDIwMjY2NGZhY2IzZjQ5YjIwZmU4ZDRhNyIsImlhdCI6MTY5NTc0NTIzNCwibmJmIjoxNjk1NzQ1MjM0LCJleHAiOjE2OTU4MzE2MzQsInN1YiI6IjEwMTQxNDEyIiwiZ3JhbnRfdHlwZSI6IiIsImFjY291bnRfaWQiOjMxNzQ4MDcyLCJiYXNlX2RvbWFpbiI6ImtvbW1vLmNvbSIsInZlcnNpb24iOiJ2MiIsInNjb3BlcyI6WyJwdXNoX25vdGlmaWNhdGlvbnMiLCJmaWxlcyIsImNybSIsImZpbGVzX2RlbGV0ZSIsIm5vdGlmaWNhdGlvbnMiXX0.bT4WwejfLyuZWwGzirJrgDKr0WwDXbn9rb__ESL13IlINcwki9inchhaAeaewLxvLXia2fnj1imTd1NY3cLW9NZnpU99iceffthDKI40gEPCkAr1EKRKMslAre1XLEJHuUIGPyggk0Y0o83hVKVnI0MYa9NPUWybZINJmOYZz3TI1b37VCy6vwOCNaslJnYH5Bjy0sYvTRoyoY7wPXmigOYhYvLA_xwM280BpPeI_SkaJfBrQiHUhdk9-oUU0faQZUrQbEK35_ZFRmkMlLK6LIbUA_dXpjyLKTJHXZWZ72LX_NfEh4Iv7JMFNkRJlxLe90LBepH6sVL19n7KdnpRpg',
+    },
+
+    data: {
+    "iss": "https://shakibseopage1net.kommo.com",
+    "aud": "https://cursofy.org/",
+    "jti": "d628f123-5123-473e-a123-ed123ef31f8f",
+    "iat": 1695744470578,
+    "nbf": 1695744470578 + 2400,
+    "exp": 1594206045 + 3600*24,
+    "account_id": 31748072,
+    "user_id": 10141412,
+    "subdomain": "shakibseopage1net",
+    "client_uuid": "c0d47479-aca9-40f0-a305-c947f74c7825"
+    }
+  
+  })
+  .done(function (response) {
+
+    console.log('success', response);
+
+  })
+  .fail(function (err) {
+
+    console.log('error', err);
+  
+  });
+  
+  console.log('Ready');
+});
+</script>
+
+</body>
+</html>
