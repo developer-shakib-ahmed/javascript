@@ -1,0 +1,28 @@
+.content h2 {
+    font-size: 24px;
+    color: #333;
+  }
+
+  .content p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+  }
+  
+  .video-fluid {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px; 
+  }
+  .sec-1{
+    padding: 80px 0px;
+  }
+  .sec-2{
+    padding: 80px 0px;
+  }
+  .sec-3{
+    padding: 80px 0px;
+  }
+  .sec-4{
+    padding: 80px 0px;
+  }

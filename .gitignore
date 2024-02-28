@@ -1,0 +1,24 @@
+/wp-admin/
+
+/wp-includes/
+
+*node_modules/*
+
+node_modules/
+
+node_modules
+
+# All in one back files
+*.wpress
+
+*.webm
+
+*.mp4
+
+*.mkv
+
+*.avi
+
+*.zip
+
+*.sql
