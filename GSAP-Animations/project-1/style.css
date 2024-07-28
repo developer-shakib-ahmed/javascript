@@ -1,0 +1,33 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #333;
+}
+
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #111;
+}
+
+section h2 {
+  color: #fff;
+  font-size: 4em;
+  display: flex;
+  font-weight: 700;
+  -webkit-box-reflect: below -22px linear-gradient(0deg, rgb(0 0 0 / 8%), rgb(0 0 0 / 0%));
+  text-transform: uppercase;
+}
+
+section h2 span:nth-child(n+10){
+  color: greenyellow;
+}

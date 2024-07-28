@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP Animation - Project 1</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+   
+  <section>
+    <h2 class="title">Developer&nbsp;Shakib&nbsp;Ahmed</h2>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- https://www.youtube.com/watch?v=9IeiowbVMNU -->
+  <script>
+    let text = document.querySelector('.title');
+    let textString = text.textContent;
+    let split = textString.split("");
+    text.textContent = "";
+    
+    for(let i=0; i<split.length; i++){
+      text.innerHTML += "<span>" + split[i] + "</span>";
+    }
+
+    let tl = gsap.timeline();
+
+    tl.from("section span", {
+      y: -400,
+      opacity: 0,
+      scrollTrigger: {
+        pin: true,
+        scrub: 1,
+        trigger: "section"
+      },
+      stagger: {
+        amount: 2
+      }
+    });
+  </script>
+</body>
+</html>
